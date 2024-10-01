@@ -1,0 +1,117 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 3fr); /* Increased column width */
+  grid-auto-rows: 12vw; /* Adjusted row height */
+  gap: 10px; /* Increased gap */
+}
+
+.image-container {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+/* Define how images should span the columns and rows */
+.image-1 {
+  grid-column: span 8; /* Increased column span */
+  grid-row: span 4;
+}
+.image-2 {
+  grid-column: span 4; /* Increased column span */
+  grid-row: span 2;
+}
+.image-3 {
+  grid-column: span 4; /* Increased column span */
+  grid-row: span 2;
+}
+.image-4 {
+  grid-column: span 4; /* Increased column span */
+  grid-row: span 2;
+}
+.image-5 {
+  grid-column: span 4; /* Increased column span */
+  grid-row: span 4;
+}
+.image-6 {
+  grid-column: span 8; /* Increased column span */
+  grid-row: span 4;
+}
+
+.image-container:hover {
+  transform: scale(1.05); /* Slightly increased scale on hover */
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ /* Increased border radius */
+}
+
+.lightbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lightbox-image {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .gallery {
+    grid-template-columns: repeat(8, 2fr); /* Adjusted grid for smaller screens */
+    grid-auto-rows: 14vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .gallery {
+    grid-template-columns: repeat(4, 3fr); /* Adjusted grid for medium screens */
+    grid-auto-rows: 16vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 3fr); /* Adjusted grid for small screens */
+    grid-auto-rows: 20vw;
+  }
+
+  .image-1, .image-2, .image-3, .image-4, .image-5, .image-6 {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 30vw;
+  }
+
+  .image-1, .image-2, .image-3, .image-4, .image-5, .image-6 {
+    grid-column: 1 / -1;
+  }
+}
